@@ -6,7 +6,7 @@ This simple application is used for demo purposes. It exposes the `actuator` end
 
 The Notepad stores the notes in a MySQL instance, so it expects the MySQL database to be up and running. The bellow command starts a MySQL container with a newly created database `notepad` in it. It also sets up the mysql root password as `root`.
 
-`$ docker run -d --name mysql -e MYSQL_DATABASE=notepad -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 mysql:5.7`
+`$ docker run -d --name mysql -e MYSQL_DATABASE=notepad -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 mysql:8.0`
 
 Now, clone this repository and go into the notepad directory:
 
@@ -23,9 +23,9 @@ Now, start the application:
 
 `$ java -jar $(ls target/*.jar)`
 
-Check that the application is up and running hitting the actuator `/health` endpoint:
+Check that the application is up and running hitting the actuator `/actuator/health` endpoint:
 
-`$ curl http://localhost:8080/health`
+`$ curl http://localhost:8080/actuator/health`
 
 Create a new note:
 
